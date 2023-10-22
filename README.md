@@ -15,7 +15,7 @@ Basically the technical stack for this project is based on the following ones:
 
 ## Create Azure Account 
 
-The very first step is to create an Azure account after this you will have a zSubscription ID.
+The very first step is to create an Azure account after this you will have a Subscription ID.
 
 ## Create a Git Repository
 
