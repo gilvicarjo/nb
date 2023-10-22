@@ -17,4 +17,29 @@ Basically the technical stack for this project is based on the following ones:
 
 The very first step is to create an Azure account after this you will have a zSubscription ID.
 
-## 
+## Create a Git Repository
+
+When creating the Git repository, you will need to create a SSH Key Pair
+
+```markdown
+ ssh-keygen -b 4096 -t rsa
+```
+
+After creating it, it's supposed to set the right permissions to this key
+```markdown
+ chmod 0400 /path/.ssh/key.pub
+```
+
+Then, add it as a default identifier
+```markdown
+ ssh-add /path/.ssh/key.pub
+```
+
+Next, you can validate the git SSH connection
+```markdown
+ ssh -T git@github.com
+```
+
+
+
+
