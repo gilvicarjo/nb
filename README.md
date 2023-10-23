@@ -119,7 +119,7 @@ If you click on Dashboard, you will see that the Helm chart has installed pre-co
 If you now go to Data Sources, you will find the data sources for Loki
 
 ## Upgrade
-Setup remote storage
-Add commands Helm chart in Terraform
-Setup variables, outputs, provider files
-Setup PHP application via TF
+Setup remote storage\n
+Add commands Helm chart in Terraform\n
+Setup variables, outputs, provider files\n
+Setup PHP application via TF\n
