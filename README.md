@@ -40,7 +40,6 @@ Next, you can validate the git SSH connection
  ssh -T git@github.com
 ```
 
-
 ## Install Azure CLI
 ```markdown
 brew update
@@ -49,5 +48,8 @@ az --version
 ```
 
 ## Install Terraform
-
+```markdown
+brew update
+brew install terraform
+```
 
