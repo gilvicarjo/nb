@@ -120,4 +120,6 @@ If you now go to Data Sources, you will find the data sources for Loki
 
 ## Upgrade
 Setup remote storage
-Add comandos Helm chart no Terraform
+Add commands Helm chart in Terraform
+Setup variables, outputs, provider files
+Setup PHP application via TF
