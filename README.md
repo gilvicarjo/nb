@@ -117,3 +117,7 @@ If you click on Dashboard, you will see that the Helm chart has installed pre-co
 
 ## Access to Loki
 If you now go to Data Sources, you will find the data sources for Loki
+
+## Upgrade
+Setup remote storage
+Add comandos Helm chart no Terraform
