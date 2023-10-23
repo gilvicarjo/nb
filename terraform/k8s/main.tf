@@ -18,6 +18,10 @@ resource "azurerm_kubernetes_cluster" "example" {
     node_count = 1
     vm_size    = "Standard_DS2_v2"
   }
+  
+  identity {
+    type = "SystemAssigned"
+  }
 }
 
 resource "azurerm_kubernetes_cluster_node_pool" "example" {
