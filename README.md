@@ -63,3 +63,57 @@ brew install kubectl
 echo "" > ~/.kube/config
 az aks get-credentials --resource-group $(terraform output -raw resource_group_name) --name $(terraform output -raw kubernetes_cluster_name)
 ```
+
+## Setup Helm
+```markdown
+brew update
+brew install helm
+```
+
+## Create Observability Namespace
+```markdown
+kubectl create ns observability
+```
+
+## Setup Loki
+Get inside Loki Helm Chart folder
+```markdown
+helm dependency build
+helm upgrade --install loki . -n observability
+```
+Loki can now be added as a datasource in Grafana.
+
+Get inside Tempo Helm Chart folder
+```markdown
+helm upgrade --install tempo . -n observability
+```
+
+## Setup Prometheus and Grafana
+Get inside kube-prometheus-stack Helm Chart folder
+Modify the Values.yaml to add Loki as a datasource
+```markdown
+helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+helm install my-grafana-stack prometheus-community/kube-prometheus-stack -n observability --values values.yaml
+kubectl --namespace observability get pods -l "release=my-grafana-stack"
+helm list -A
+kubectl get pods -n observability
+```
+Grafana and Prometheus are deployed :)
+
+## Logging into Prometheus
+```markdown
+kubectl get svc -n observability
+kubectl port-forward svc/my-grafana-stack-kube-prom-prometheus 9090:9090 -n observability
+```
+
+## Logging into Grafana
+```markdown
+kubectl get svc -n observability
+kubectl port-forward svc/my-grafana-stack 3000:80 -n observability
+```
+The default login is: admin : prom-operator
+
+If you click on Dashboard, you will see that the Helm chart has installed pre-configured dashboards.
+
+## Access to Loki
+If you now go to Data Sources, you will find the data sources for Loki
