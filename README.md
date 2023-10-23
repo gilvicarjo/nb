@@ -53,3 +53,13 @@ brew update
 brew install terraform
 ```
 
+## Install kubectl
+```markdown
+brew update
+brew install kubectl
+```
+## Setup kubeconfig
+```markdown
+echo "" > ~/.kube/config
+az aks get-credentials --resource-group $(terraform output -raw resource_group_name) --name $(terraform output -raw kubernetes_cluster_name)
+```
